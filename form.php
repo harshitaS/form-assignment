@@ -10,21 +10,22 @@
 <?php
 // define variables and set to empty values
 $nameErr = $phoneErr = $misErr = "";
+
 $name = $phone = $mis = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
    if (empty($_POST["name"])) {
-     $nameErr = "Name is required";
+     $nameErr = "Name is required!";
    } else {
      $name = test_input($_POST["name"]);
      // check if name only contains letters and whitespace
      if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
-       $nameErr = "Only letters and white space allowed";
+       $nameErr = "Only letters and white space allowed!";
      }
    }
   
    if (empty($_POST["phone"])) {
-     $phoneErr = "phone is required";
+     $phoneErr = "Phone is required";
    } else {
      $phone = test_input($_POST["phone"]);
      if (strlen($phone) != 10) {
