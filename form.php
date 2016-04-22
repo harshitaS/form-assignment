@@ -9,9 +9,9 @@
 
 <?php
 // define variables and set to empty values
-$nameErr = $phoneErr = $misErr = "";
+$nameErr = $phoneErr = $misErr = $emailErr"";
 
-$name = $phone = $mis = "";
+$name = $phone = $mis = $email = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
    if (empty($_POST["name"])) {
@@ -41,6 +41,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       {
        $misErr = "Invalid mis";
      }
+   }
+}
+
+if (empty($_POST["email"])) {
+     $misErr = "email required";
+   } else {
+     $mis = test_input($_POST["mis"]);
+     
    }
 }
 
@@ -74,6 +82,8 @@ echo "<br>";
 echo $phone;
 echo "<br>";
 echo $mis;
+echo "<br>";
+echo $email;
 echo "<br>";
 ?>
 
